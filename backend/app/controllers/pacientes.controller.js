@@ -6,7 +6,7 @@ const Op = db.Sequelize.Op;
 exports.create = (req, res) => {
     // Validar consulta
     console.log(req.body)
-    if (!req.body.name) {
+    if (!req.body.rut_paciente) {
         res.status(400).send({
             message: "Content can not be empty!"
         });
@@ -21,7 +21,7 @@ exports.create = (req, res) => {
             Sexo: req.body.Sexo,
             Fecha_Nacimiento: req.body.Fecha_Nacimiento,
             Prevision: req.body.Prevision,
-            Telefono: req.body.telefono,
+            Telefono: req.body.Telefono,
             Correo_pac: req.body.Correo_pac
         })
         .then(data => {
@@ -93,9 +93,9 @@ exports.update = (req, res) => {
 };
 // Eliminar un Pacientes
 exports.delete = (req, res) => {
-    const id = req.params.id;
+    const id = req.params.rut_paciente;
     Pacientes.destroy({
-        where: { id: id }
+        where: { rut_paciente: id }
     })
         .then(num => {
             if (num == 1) {
@@ -109,6 +109,7 @@ exports.delete = (req, res) => {
             }
         })
         .catch(err => {
+            console.log(err);
             res.status(500).send({
                 message: "Error al eliminar el Pacientes"
             });

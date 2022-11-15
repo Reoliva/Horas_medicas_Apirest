@@ -6,7 +6,7 @@ module.exports = app => {
     router.get("/", Pacientes.findAll);
     router.get("/:id", Pacientes.findOne);
     router.put("/:id", Pacientes.update);
-    router.delete("/:id", Pacientes.delete);
+    router.delete("/:rut_paciente", Pacientes.delete);
     router.delete("/", Pacientes.deleteAll);
     app.use('/api/Pacientes', router);
  };

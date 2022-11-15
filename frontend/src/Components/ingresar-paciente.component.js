@@ -1,10 +1,10 @@
 // Import Modules
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ClientDataService from "../Services/pacientes.service";
 import FormaPacientes from "./FormaPaciente";
   
 const IngresarPaciente = () => {
-  const [formValues, setFormValues] = useState({ Nombre: '', Dirección: '', email: '' })
+  const [formValues] = useState({ rut_paciente: '',  Name1_Pac: '', Name2_Pac: '',Apellidos_Pac:'', Sexo: '', Fecha_Nacimiento: '', Prevision: '', Telefono: '', Correo_pac: '' })
   const onSubmit = clientObject => {
     ClientDataService.create(clientObject)
       .then(res => {
@@ -15,7 +15,7 @@ const IngresarPaciente = () => {
       })
       .catch(err => alert('Oops, algo salió mal'))
   }
-    
+
   // Return client form
   return(
     <FormaPacientes initialValues={formValues} 

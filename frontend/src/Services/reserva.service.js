@@ -1,27 +1,27 @@
 import http from "./http-common";
 
 const getAll = () => {
-  return http.get("/pacientes");
+  return http.get("/reservas");
 };
 
 const get = id => {
-  return http.get(`/pacientes/${id}`);
+  return http.get(`/reservas/${id}`);
 };
 
 const create = data => {
-  return http.post("/pacientes", data);
+  return http.post("/reservas", data);
 };
 
 const update = (id, data) => {
-  return http.put(`/pacientes/${id}`, data);
+  return http.put(`/reservas/${id}`, data);
 };
 
-const remove = rut_paciente => {
-  return http.delete(`/Pacientes/${rut_paciente}`);
+const remove = Numero_reserva => {
+  return http.delete(`/reservas/${Numero_reserva}`);
 };
 
 const removeAll = () => {
-  return http.delete(`/pacientes`);
+  return http.delete(`/reservas`);
 };
 
 

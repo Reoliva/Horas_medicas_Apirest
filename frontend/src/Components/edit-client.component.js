@@ -27,8 +27,8 @@ const EditClient = (props) => {
   useEffect(() => {
     ClientDataService.get(props.match.params.id)
       .then((res) => {
-        const { name, address, email } = res.data;
-        setFormValues({ name, address, email });
+        const { rut_paciente, Name1_Pac, Apellidos_Pac, Sexo, Fecha_Nacimiento, Prevision, Telefono, Correo_pac } = res.data;
+        setFormValues({ rut_paciente, Name1_Pac, Apellidos_Pac, Sexo, Fecha_Nacimiento, Prevision, Telefono, Correo_pac });
       })
       .catch((err) => console.log(err));
   }, []);

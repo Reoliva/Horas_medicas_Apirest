@@ -15,6 +15,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import IngresarPaciente from "./Components/ingresar-paciente.component";
 import EditClient from "./Components/edit-client.component";
 import ClientList from "./Components/pacientes-lista.component";
+import CrearReserva from "./Components/crear-reserva.component";
+import ListaReserva from "./Components/reservas-lista.component";
 
 // App Component
 const App = () => {
@@ -45,6 +47,18 @@ const App = () => {
                     Lista de pacientes
                   </Link>
                 </Nav>
+                <Nav>
+                  <Link to={"/crear-reserva"} 
+                    className="nav-link">
+                    Crear Reserva
+                  </Link>
+                </Nav>
+                <Nav>
+                  <Link to={"/reservas-lista"} 
+                    className="nav-link">
+                      Lista de Reservas
+                                        </Link>
+                </Nav>
               </Nav>
             </Container>
           </Navbar>
@@ -59,6 +73,9 @@ const App = () => {
                   <Route path="/ingresar-paciente" component={IngresarPaciente} />
                   <Route path="/edit-client/:id" component={EditClient} />
                   <Route path="/pacientes-lista" component={ClientList} />
+                  <Route path="/crear-reserva" component={CrearReserva} />
+                  <Route path="/reservas-lista" component={ListaReserva} />
+
                 </Switch>
               </div>
             </Col>

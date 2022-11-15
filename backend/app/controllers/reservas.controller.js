@@ -6,7 +6,7 @@ const Op = db.Sequelize.Op;
 exports.create = (req, res) => {
     // Validar consulta
     console.log(req.body)
-    if (!req.body.name) {
+    if (!req.body.Numero_reserva) {
         res.status(400).send({
             message: "Content can not be empty!"
         });
@@ -14,11 +14,12 @@ exports.create = (req, res) => {
     }
     // Crear y guardar en base de datos
     Reservas.create({
-            Numeor_reserva: req.body.Numero_reserva,
+            Numero_reserva: req.body.Numero_reserva,
             Rut_Medico: req.body.Rut_Medico,
             Rut_Paciente: req.body.Rut_Paciente,
-            Fecha_Hora: req.body.Fecha_Hora,
             Sexo: req.body.Sexo,
+            Fecha: req.body.Fecha_Hora,
+            Hora: req.body.Fecha_Hora,
             Reservado_el: req.body.Reservado_el
         })
         .then(data => {
@@ -90,9 +91,9 @@ exports.update = (req, res) => {
 };
 // Eliminar un Reservas
 exports.delete = (req, res) => {
-    const id = req.params.id;
+    const id = req.params.Numero_reserva;
     Reservas.destroy({
-        where: { id: id }
+        where: { Numero_reserva: id }
     })
         .then(num => {
             if (num == 1) {

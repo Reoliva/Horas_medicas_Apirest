@@ -12,8 +12,11 @@ module.exports = (sequelize, Sequelize) => {
       Rut_Paciente: {
         type: Sequelize.INTEGER
       },
-      Fecha_Hora: {
-        type: Sequelize.DATE
+      Fecha: {
+        type: Sequelize.DATEONLY
+      },
+      Hora: {
+        type: Sequelize.TIME
       },
       Reservado_el: {
         type: Sequelize.DATE

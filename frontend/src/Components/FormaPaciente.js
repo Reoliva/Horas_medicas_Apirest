@@ -6,10 +6,15 @@ import { FormGroup, FormControl, Button } from "react-bootstrap";
 
 const FormaPaciente = (props) => {
   const validationSchema = Yup.object().shape({
-    name: Yup.string().required("Required"),
+    rut_paciente: Yup.string().required("Required"),
+    Name1_Pac: Yup.string().required("Required"),
+    Apellidos_Pac: Yup.string().required("Required"),
     Fecha_Nacimiento: Yup.string().required("Required"),
-    email: Yup.string()
-        .email("You have enter an invalid email Fecha_Nacimiento")
+    Sexo: Yup.string().required("Required"),
+    Prevision: Yup.string().required("Required"),
+    Telefono: Yup.string().required("Required"),
+    Correo_pac: Yup.string()
+        .email("You have enter an invalid email")
         .required("Required"),
   });
 
@@ -19,30 +24,32 @@ const FormaPaciente = (props) => {
         <Form>
 
         <FormGroup className="mb-3">
-            <label htmlFor="RUT">Rut</label>
-            <Field name="RUT" type="int" className="form-control" placeholder="Ingresa el Rut sin puntos ni dijito verificador"/>
-            <ErrorMessage name="RUT" className="d-block invalid-feedback" component="span" />
+            <label htmlFor="rut_paciente">Rut</label>
+            <Field name="rut_paciente" type="int" className="form-control" placeholder="Ingresa el Rut sin puntos ni dijito verificador"/>
+            <ErrorMessage name="rut_paciente" className="d-block invalid-feedback" component="span" />
+          </FormGroup>
+    
+          <FormGroup className="mb-3">
+            <label htmlFor="Name1_Pac">Nombre</label>
+            <Field name="Name1_Pac" type="text" className="form-control" placeholder="Nombre/s"/>
+            <ErrorMessage name="Name1_Pac" className="d-block invalid-feedback" component="span" />
+          </FormGroup>
+          <FormGroup className="mb-3">
+            <label htmlFor="Name2_Pac">Segundo Nombre</label>
+            <Field name="Name2_Pac" type="text" className="form-control" placeholder="Nombre/s"/>
+            <ErrorMessage name="Name1_Pac" className="d-block invalid-feedback" component="span" />
           </FormGroup>
 
           <FormGroup className="mb-3">
-            <label htmlFor="name">Nombre</label>
-            <Field name="name" type="text" className="form-control" placeholder="Nombre/s"/>
-            <ErrorMessage name="name" className="d-block invalid-feedback" component="span" />
-          </FormGroup>
-
-          <FormGroup className="mb-3">
-            <label htmlFor="name">Apellidos</label>
-            <Field name="Apellidos" type="text" className="form-control" placeholder="Apellido Paterno y Materno"/>
-            <ErrorMessage name="Apellidos" className="d-block invalid-feedback" component="span" />
+            <label htmlFor="Apellidos_Pac">Apellidos</label>
+            <Field name="Apellidos_Pac" type="text" className="form-control" placeholder="Apellido Paterno y Materno"/>
+            <ErrorMessage name="Apellidos_Pac" className="d-block invalid-feedback" component="span" />
           </FormGroup >
 
           <FormGroup className="mb-3">
-            <label> 
-              Sexo: {"\n"}
-              <input name="gender" type="radio" value="Hombre"/> Hombre 
-              <input name="gender" type="radio" value="Mujer"/> Mujer 
-            </label>
-            <ErrorMessage name="gender" className="d-block invalid-feedback" component="span" />
+            <label htmlFor="Sexo">Sexo</label>
+            <Field name="Sexo" type="text" className="form-control" placeholder="Mujer/Hombre/Otro"/>
+            <ErrorMessage name="Sexo" className="d-block invalid-feedback" component="span" />
           </FormGroup >
 
           <FormGroup className="mb-3">
@@ -52,9 +59,9 @@ const FormaPaciente = (props) => {
           </FormGroup>
 
           <FormGroup className="mb-3">
-            <label htmlFor="Previsión">Previsión</label>
-            <Field name="Previsión" type="text" className="form-control" placeholder="Ej: Fonasa"/>
-            <ErrorMessage name="Previsión" className="d-block invalid-feedback" component="span" />
+            <label htmlFor="Prevision">Previsión</label>
+            <Field name="Prevision" type="text" className="form-control" placeholder="Ej: Fonasa"/>
+            <ErrorMessage name="Prevision" className="d-block invalid-feedback" component="span" />
           </FormGroup>
 
           <FormGroup className="mb-3">
@@ -64,9 +71,9 @@ const FormaPaciente = (props) => {
           </FormGroup>
 
           <FormGroup className="mb-3">
-            <label htmlFor="email">Correo Electronico</label>
-            <Field name="email" type="text" className="form-control" placeholder="ejemplo@correo.cl"/>
-            <ErrorMessage name="email" className="d-block invalid-feedback" component="span" />
+            <label htmlFor="Correo_pac">Correo Electronico</label>
+            <Field name="Correo_pac" type="text" className="form-control" placeholder="ejemplo@correo.cl"/>
+            <ErrorMessage name="Correo_pac" className="d-block invalid-feedback" component="span" />
           </FormGroup >
           <Button variant="danger" size="lg" 
             block="block" type="submit">

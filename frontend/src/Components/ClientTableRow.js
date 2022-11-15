@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 import ClientDataService from "../Services/pacientes.service";
   
 const ClientTableRow = (props) => {
-  const { id, name, address, email } = props.obj;
+  const { id, rut_paciente, Name1_Pac, Name2_Pac, Apellidos_Pac, Sexo, Fecha_Nacimiento, Prevision, Telefono, Correo_pac } = props.obj;
   
   const deleteClient = () => {
-    ClientDataService.remove(id)
+    ClientDataService.remove(rut_paciente)
       .then((res) => {
         if (res.status === 200) {
           alert("Client successfully deleted");
@@ -21,17 +21,19 @@ const ClientTableRow = (props) => {
   
   return (
     <tr>
-      <td>{name}</td>
-      <td>{address}</td>
-      <td>{email}</td>
+      <td>{rut_paciente}</td>
+      <td>{Name1_Pac}</td>
+      <td>{Name2_Pac}</td>
+      <td>{Apellidos_Pac}</td>
+      <td>{Sexo}</td>
+      <td>{Fecha_Nacimiento}</td>
+      <td>{Prevision}</td>
+      <td>{Telefono}</td>
+      <td>{Correo_pac}</td>
       <td>
-        <Link className="edit-link" 
-          to={"/edit-client/" + id}>
-          Edit
-        </Link>
         <Button onClick={deleteClient} 
           size="sm" variant="danger">
-          Delete
+          Eliminar
         </Button>
       </td>
     </tr>
